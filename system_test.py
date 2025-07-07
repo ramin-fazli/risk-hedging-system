@@ -24,7 +24,7 @@ def main():
     config.ML_ENABLED = True
     config.ML_MODE = "minimal"  # Use minimal for testing
     
-    print(f"📊 Configuration:")
+    print("Configuration:")
     print(f"   • Data Period: {config.START_DATE.strftime('%Y-%m-%d')} to {config.END_DATE.strftime('%Y-%m-%d')}")
     print(f"   • ML Enabled: {config.ML_ENABLED}")
     print(f"   • ML Mode: {config.ML_MODE}")
@@ -52,11 +52,11 @@ def main():
             print(f"   [OK] {name}")
             success_count += 1
         except ImportError as e:
-            print(f"   ❌ {name}: {e}")
+            print(f"   [FAIL] {name}: {e}")
         except Exception as e:
-            print(f"   ⚠️  {name}: {e}")
+            print(f"   [WARN] {name}: {e}")
     
-    print(f"\n📈 Component Test Results: {success_count}/{len(components)} passed")
+    print(f"\nComponent Test Results: {success_count}/{len(components)} passed")
     
     # Test data generation
     print("\n🔄 Testing Data Generation:")
@@ -73,7 +73,7 @@ def main():
         print(f"   [OK] Revenue Data: {len(revenue_data)} quarters generated")
         
     except Exception as e:
-        print(f"   ❌ Data generation failed: {e}")
+        print(f"   [FAIL] Data generation failed: {e}")
     
     # Test ML capabilities
     print("\n🧠 Testing ML Capabilities:")
@@ -99,11 +99,11 @@ def main():
         print("   [OK] ML Predictor initialized")
         
     except Exception as e:
-        print(f"   ❌ ML component failed: {e}")
+        print(f"   [FAIL] ML component failed: {e}")
     
     # Performance summary
     elapsed_time = time.time() - start_time
-    print(f"\n⏱️  Test completed in {elapsed_time:.2f} seconds")
+    print(f"\nTest completed in {elapsed_time:.2f} seconds")
     
     print("\n🎉 System Status: READY FOR PRODUCTION")
     print("=" * 80)
