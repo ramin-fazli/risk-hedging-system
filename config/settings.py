@@ -380,3 +380,6 @@ class Config:
             raise ValueError("Max position size must be between 0 and 1")
         
         return True
+
+# Create a global config instance
+config = Config()
