@@ -32,7 +32,7 @@ def main():
     print()
     
     # Test imports
-    print("🔍 Testing System Components:")
+    print("Testing System Components:")
     
     components = [
         ("Data Loader", "data.data_loader", "DataLoader"),
@@ -59,7 +59,7 @@ def main():
     print(f"\nComponent Test Results: {success_count}/{len(components)} passed")
     
     # Test data generation
-    print("\n🔄 Testing Data Generation:")
+    print("\nTesting Data Generation:")
     try:
         from data.mock_data import MockDataGenerator
         mock_gen = MockDataGenerator(config)
@@ -76,7 +76,7 @@ def main():
         print(f"   [FAIL] Data generation failed: {e}")
     
     # Test ML capabilities
-    print("\n🧠 Testing ML Capabilities:")
+    print("\nTesting ML Capabilities:")
     try:
         from ml.feature_engineer import FeatureEngineer
         feature_eng = FeatureEngineer(config)
@@ -105,7 +105,7 @@ def main():
     elapsed_time = time.time() - start_time
     print(f"\nTest completed in {elapsed_time:.2f} seconds")
     
-    print("\n🎉 System Status: READY FOR PRODUCTION")
+    print("\nSystem Status: READY FOR PRODUCTION")
     print("=" * 80)
     
     return True
