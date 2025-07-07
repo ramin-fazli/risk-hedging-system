@@ -12,7 +12,7 @@ from utils.helpers import setup_logging
 
 def main():
     """Run complete system test with all features"""
-    print("🚀 FBX Hedging Strategy Backtesting System - Complete Test")
+    print("FBX Hedging Strategy Backtesting System - Complete Test")
     print("=" * 80)
     
     # Setup
@@ -49,7 +49,7 @@ def main():
         try:
             module = __import__(module_name, fromlist=[class_name])
             getattr(module, class_name)
-            print(f"   ✅ {name}")
+            print(f"   [OK] {name}")
             success_count += 1
         except ImportError as e:
             print(f"   ❌ {name}: {e}")
@@ -64,13 +64,13 @@ def main():
         from data.mock_data import MockDataGenerator
         mock_gen = MockDataGenerator(config)
         fbx_data = mock_gen.generate_fbx_data()
-        print(f"   ✅ FBX Data: {len(fbx_data)} records generated")
+        print(f"   [OK] FBX Data: {len(fbx_data)} records generated")
         
         instruments_data = mock_gen.generate_instruments_data()
-        print(f"   ✅ Instruments Data: {len(instruments_data.columns)} instruments, {len(instruments_data)} records")
+        print(f"   [OK] Instruments Data: {len(instruments_data.columns)} instruments, {len(instruments_data)} records")
         
         revenue_data = mock_gen.generate_revenue_data()
-        print(f"   ✅ Revenue Data: {len(revenue_data)} quarters generated")
+        print(f"   [OK] Revenue Data: {len(revenue_data)} quarters generated")
         
     except Exception as e:
         print(f"   ❌ Data generation failed: {e}")
@@ -80,23 +80,23 @@ def main():
     try:
         from ml.feature_engineer import FeatureEngineer
         feature_eng = FeatureEngineer(config)
-        print("   ✅ Feature Engineer initialized")
+        print("   [OK] Feature Engineer initialized")
         
         from ml.model_trainer import ModelTrainer
         model_trainer = ModelTrainer(config)
-        print("   ✅ Model Trainer initialized")
+        print("   [OK] Model Trainer initialized")
         
         from ml.ensemble_manager import EnsembleManager
         ensemble_mgr = EnsembleManager(config)
-        print("   ✅ Ensemble Manager initialized")
+        print("   [OK] Ensemble Manager initialized")
         
         from ml.hyperopt_optimizer import HyperoptOptimizer
         hyperopt = HyperoptOptimizer(config)
-        print("   ✅ Hyperopt Optimizer initialized")
+        print("   [OK] Hyperopt Optimizer initialized")
         
         from ml.ml_predictor import MLPredictor
         ml_predictor = MLPredictor(config)
-        print("   ✅ ML Predictor initialized")
+        print("   [OK] ML Predictor initialized")
         
     except Exception as e:
         print(f"   ❌ ML component failed: {e}")

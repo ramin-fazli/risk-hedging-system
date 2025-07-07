@@ -1,0 +1,34 @@
+
+# GitHub Publishing Commands
+# =========================
+
+# 1. Create repository on GitHub (do this first):
+#    - Go to https://github.com/new
+#    - Repository name: fbx-hedging-strategy
+#    - Description: Advanced ML-powered hedging strategy backtesting system for FBX exposure
+#    - Public repository
+#    - Don't initialize with README (we have existing code)
+
+# 2. Connect local repository to GitHub:
+git remote add origin https://github.com/yourusername/fbx-hedging-strategy.git
+
+# 3. Push to GitHub:
+git branch -M main
+git push -u origin main
+
+# 4. Create the first release:
+git tag -a v1.0.0 -m "v1.0.0: Initial release with ML capabilities"
+git push origin v1.0.0
+
+# 5. Then create a GitHub Release:
+#    - Go to your repository on GitHub
+#    - Click "Releases" → "Create a new release"
+#    - Choose tag v1.0.0
+#    - Title: "v1.0.0 - Initial Release"
+#    - Copy content from RELEASE_NOTES.md
+#    - Publish release
+
+# 6. Optional: Set up branch protection:
+#    - Go to Settings → Branches
+#    - Add rule for main branch
+#    - Enable "Require pull request reviews before merging"
