@@ -133,10 +133,8 @@ class FeatureEngineer:
         return features
     
     def _add_technical_indicators(self, features: pd.DataFrame, data: pd.DataFrame) -> pd.DataFrame:
-        """Add technical indicators using TA-Lib or fallback methods"""
+        """Add technical indicators using TA-Lib"""
         try:
-            import talib
-            # Use TA-Lib if available
             for col in data.columns:
                 if col.endswith('_Close') or col.endswith('_Value'):
                     prices = data[col].values
@@ -161,43 +159,7 @@ class FeatureEngineer:
                         volume = data[f'{col.replace("_Close", "_Volume")}'].values
                         features[f'{col}_obv'] = talib.OBV(prices, volume)
                         features[f'{col}_ad'] = talib.AD(prices, prices, prices, volume)
-        
-        except ImportError:
-            # Fallback to simple indicators
-            self.logger.info("TA-Lib not available, using basic technical indicators")
-            
-            for col in data.columns:
-                if col.endswith('_Close') or col.endswith('_Value'):
-                    prices = data[col]
                     
-                    # Simple moving averages
-                    features[f'{col}_sma_20'] = prices.rolling(20).mean()
-                    features[f'{col}_sma_50'] = prices.rolling(50).mean()
-                    
-                    # Exponential moving average (approximation)
-                    features[f'{col}_ema_20'] = prices.ewm(span=20).mean()
-                    
-                    # Simple RSI approximation
-                    delta = prices.diff()
-                    gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
-                    loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
-                    rs = gain / loss
-                    features[f'{col}_rsi'] = 100 - (100 / (1 + rs))
-                    
-                    # Bollinger Bands
-                    sma = prices.rolling(20).mean()
-                    std = prices.rolling(20).std()
-                    features[f'{col}_bbands_upper'] = sma + (std * 2)
-                    features[f'{col}_bbands_middle'] = sma
-                    features[f'{col}_bbands_lower'] = sma - (std * 2)
-                    
-                    # MACD approximation
-                    ema12 = prices.ewm(span=12).mean()
-                    ema26 = prices.ewm(span=26).mean()
-                    features[f'{col}_macd'] = ema12 - ema26
-                    features[f'{col}_macd_signal'] = features[f'{col}_macd'].ewm(span=9).mean()
-                    features[f'{col}_macd_hist'] = features[f'{col}_macd'] - features[f'{col}_macd_signal']
-        
         except Exception as e:
             self.logger.warning(f"Error adding technical indicators: {e}")
         
