@@ -1,13 +1,13 @@
-# FBX Hedging System with ML
+# Risk Hedging System with ML
 
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
+![License](https://img.shields.io/badge/license-Apache%202.0-blue)
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
 ![ML](https://img.shields.io/badge/ML-enabled-orange)
 ![Status](https://img.shields.io/badge/status-production%20ready-success)
 
-A comprehensive ML-powered Python project for backtesting hedging strategies against the Freightos Baltic Index (FBX) using correlated ETFs and stocks.
+A comprehensive ML-powered Python project for backtesting hedging strategies against the Freightos Baltic Index (FBX) or other indices using correlated ETFs and stocks.
 
 ## Features
 
@@ -40,7 +40,7 @@ A comprehensive ML-powered Python project for backtesting hedging strategies aga
 ## Project Structure
 
 ```
-fbx-hedging-strategy/
+risk-hedging-system/
 ├── .github/                 # GitHub templates and workflows
 │   ├── ISSUE_TEMPLATE/      # Bug reports and feature requests
 │   └── workflows/           # CI/CD pipeline
@@ -90,7 +90,7 @@ fbx-hedging-strategy/
 ├── CONTRIBUTING.md          # Contribution guidelines
 ├── DEPLOYMENT_GUIDE.md      # Deployment instructions
 ├── GITHUB_PUBLISHING_GUIDE.md # GitHub publishing guide
-├── LICENSE                  # MIT License
+├── LICENSE                  # Apache License 2.0
 ├── ML_DOCUMENTATION.md      # ML pipeline documentation
 ├── ML_ENHANCEMENT_GUIDE.md  # ML enhancement guide
 ├── ML_GUIDE.md             # ML usage guide
@@ -134,8 +134,8 @@ fbx-hedging-strategy/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/fbx-hedging-strategy.git
-   cd fbx-hedging-strategy
+   git clone https://github.com/ramin-fazli/risk-hedging-system.git
+   cd risk-hedging-system
    ```
 
 2. **Run the automated installer**
@@ -147,8 +147,8 @@ fbx-hedging-strategy/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/fbx-hedging-strategy.git
-   cd fbx-hedging-strategy
+   git clone https://github.com/ramin-fazli/risk-hedging-system.git
+   cd risk-hedging-system
    ```
 
 2. **Create a virtual environment**
@@ -374,12 +374,12 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
 
 ## 📞 Support
 
-- **Issues**: Report bugs or request features via [GitHub Issues](https://github.com/yourusername/fbx-hedging-strategy/issues)
-- **Discussions**: Join the conversation in [GitHub Discussions](https://github.com/yourusername/fbx-hedging-strategy/discussions)
+- **Issues**: Report bugs or request features via [GitHub Issues](https://github.com/ramin-fazli/risk-hedging-system/issues)
+- **Discussions**: Join the conversation in [GitHub Discussions](https://github.com/ramin-fazli/risk-hedging-system/discussions)
 - **Documentation**: Comprehensive guides available in the `docs/` directory
 
 ## 🏆 Acknowledgments
@@ -390,4 +390,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**📊 Repository Stats**: 75 files • 35 Python modules • 11,868+ lines of code • Production ready • MIT licensed
+**📊 Repository Stats**: 75 files • 35 Python modules • 11,868+ lines of code • Production ready • Apache 2.0 licensed
